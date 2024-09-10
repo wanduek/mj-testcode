@@ -62,4 +62,9 @@ public class JwtUtil {
                 .parseClaimsJws(token)
                 .getBody();
     }
+
+    public long extractUserIdFromToken(String bearerToken) {
+        Claims claims = extractClaims(bearerToken.substring(7)); // "Bearer "를 제거합니다.
+        return Long.parseLong(claims.getSubject());
+    }
 }
