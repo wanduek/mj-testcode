@@ -45,4 +45,5 @@ public class Todo extends Timestamped {
         this.title = title;
         this.contents = contents;
     }
+
 }

@@ -47,7 +47,7 @@ public class AdminAop {
         HttpServletRequest request = requestAttributes.getRequest();
         String requestUrl = request.getRequestURI().toString();
         LocalDateTime requestTime = LocalDateTime.now(); // API 요청 시각
-        Long userId = (Long) request.getAttribute("userId"); // HTTP 헤더에서 사용자 ID 가져오기
+        Long userId = (Long) request.getAttribute("userId"); // Attribute에서 사용자 ID 가져오기
 
         // userId로 user 객체를 조회
         User user = userRepository.findById(userId)

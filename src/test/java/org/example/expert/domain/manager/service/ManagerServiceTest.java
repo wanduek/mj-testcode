@@ -53,7 +53,7 @@ class ManagerServiceTest {
     @Test
     void todo의_user가_null인_경우_예외가_발생한다() {
         // given
-        AuthUser authUser = new AuthUser(1L, "a@a.com", UserRole.USER);
+        AuthUser authUser = new AuthUser(1L, "a@a.com");
         long todoId = 1L;
         long managerUserId = 2L;
 
@@ -98,7 +98,7 @@ class ManagerServiceTest {
     @Test // 테스트코드 샘플
     void todo가_정상적으로_등록된다() {
         // given
-        AuthUser authUser = new AuthUser(1L, "a@a.com", UserRole.USER);
+        AuthUser authUser = new AuthUser(1L, "a@a.com");
         User user = User.fromAuthUser(authUser);  // 일정을 만든 유저
 
         long todoId = 1L;

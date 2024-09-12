@@ -19,7 +19,8 @@ public class AuthController {
 
     @PostMapping("/auth/signup")
     public SignupResponse signup(@Valid @RequestBody SignupRequest signupRequest) {
-        return authService.signup(signupRequest);
+        SignupResponse res = authService.signup(signupRequest);
+        return res;
     }
 
     @PostMapping("/auth/signin")

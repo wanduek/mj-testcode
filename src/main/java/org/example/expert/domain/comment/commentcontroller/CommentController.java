@@ -1,4 +1,4 @@
-package org.example.expert.domain.comment.controller;
+package org.example.expert.domain.comment.commentcontroller;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
