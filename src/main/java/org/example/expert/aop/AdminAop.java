@@ -29,7 +29,7 @@ public class AdminAop {
     private final UserRepository userRepository;
 
 
-    @Pointcut("execution(* org.example.expert.domain.comment.controller.CommentAdminController.deleteComment(..))")
+    @Pointcut("execution(* org.example.expert.domain.comment.commentcontroller.CommentAdminController.deleteComment(..))")
     private void commentDelete() {
     }
 
