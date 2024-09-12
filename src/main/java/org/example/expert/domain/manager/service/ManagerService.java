@@ -98,4 +98,8 @@ public class ManagerService {
 
         managerRepository.delete(manager);
     }
+
+    public boolean isManagerForTodo(Long id, long todoId) {
+        return managerRepository.existsByUserIdAndTodoId(id, todoId);
+    }
 }
