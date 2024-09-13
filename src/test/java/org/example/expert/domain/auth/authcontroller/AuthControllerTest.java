@@ -1,4 +1,4 @@
-package org.example.expert.domain.auth.authservice.authcontroller;
+package org.example.expert.domain.auth.authcontroller;
 
 
 import com.fasterxml.jackson.databind.ObjectMapper;

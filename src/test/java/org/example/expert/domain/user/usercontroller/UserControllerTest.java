@@ -1,4 +1,4 @@
-package org.example.expert.domain.user.userservice.usercontroller;
+package org.example.expert.domain.user.usercontroller;
 
 import org.example.expert.config.JwtUtil;
 import org.example.expert.domain.common.dto.AuthUser;

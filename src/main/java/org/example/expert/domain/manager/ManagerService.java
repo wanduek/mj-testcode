@@ -1,4 +1,4 @@
-package org.example.expert.domain.manager.service;
+package org.example.expert.domain.manager;
 
 import lombok.RequiredArgsConstructor;
 import org.example.expert.config.JwtUtil;
