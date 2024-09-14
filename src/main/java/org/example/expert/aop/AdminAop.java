@@ -50,12 +50,20 @@ public class AdminAop {
         Long userId = (Long) request.getAttribute("userId"); // Attribute에서 사용자 ID 가져오기
 
         // userId로 user 객체를 조회
-        User user = userRepository.findById(userId)
+        User user;
+        try{
+        user= userRepository.findById(userId)
                 .orElseThrow(() -> new IllegalArgumentException("해당 사용자를 찾을 수 없다."));
+        } catch (Exception e) {
+            log.error("사용자 조회 중 오류 발생. 사용자 ID: " + userId, e);
+            throw e;
+        }
 
         try {
             // 핵심기능 수행
             Object output = joinPoint.proceed();
+
+
             return output;
         } finally {
             // 측정 종료 시간
@@ -70,11 +78,15 @@ public class AdminAop {
                     ", 요청 Time: " + requestTime);
 
             // API 사용시간 및 DB에 기록
-            ApiUseTime apiUseTime = apiUseTimeRepository.findByUser(user)
-                    .orElse(new ApiUseTime(user, runTime));
+            try {
+                ApiUseTime apiUseTime = apiUseTimeRepository.findByUser(user)
+                        .orElse(new ApiUseTime(user, runTime));
 
-            apiUseTime.addUseTime(runTime);
-            apiUseTimeRepository.save(apiUseTime);
+                apiUseTime.addUseTime(runTime);
+                apiUseTimeRepository.save(apiUseTime);
+            } catch (Exception e) {
+                log.error("API 사용 시간 기록 중 오류 발생. 사용자 ID: " + userId, e);
+            }
         }
     }
 }
